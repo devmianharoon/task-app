@@ -1,8 +1,12 @@
+'use client '
+import { getSingelTask } from '@/app/actions/actions';
 import { ModalProps } from '@/app/types/types';
+import { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 
 export default function UpdateModel({ isOpen, onClose, }: ModalProps) {
+    const [value ,setValue]=useState()
     return (
         <div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
             <div className="modal-overlay absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-80">
@@ -18,6 +22,7 @@ export default function UpdateModel({ isOpen, onClose, }: ModalProps) {
                             Todo
                         </label>
                         <textarea
+                            value={value}
                             id="note"
                             className="w-full border p-2 mb-2 bg-[#A87676]"
                         />

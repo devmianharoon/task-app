@@ -4,6 +4,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import UpdateModel from '../updateModel/page';
 import { todoItemProps } from '@/app/types/types';
+import { deleteTodo } from '@/app/actions/actions';
 
 
 
@@ -23,7 +24,7 @@ export default function TodoList(props:todoItemProps) {
                 <button>
                     <FaRegEdit onClick={onUpdate} className='text-white' />
                 </button>
-                <button>
+                <button onClick={()=>(deleteTodo(props.id))}>
                     <MdDelete className='text-white' />
                 </button>
                 <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value" />
