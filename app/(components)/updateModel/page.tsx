@@ -1,8 +1,8 @@
-// import { ModalProps } from '@/types/types';
+import { ModalProps } from '@/app/types/types';
 import { FaTimes } from 'react-icons/fa';
 
 
-export default function UpdateModel({ isOpen, onClose, }: any) {
+export default function UpdateModel({ isOpen, onClose, }: ModalProps) {
     return (
         <div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
             <div className="modal-overlay absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-80">

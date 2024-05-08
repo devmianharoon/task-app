@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import UpdateModel from '../updateModel/page';
+import { todoItemProps } from '@/app/types/types';
 
 
 
-export default function TodoList() {
+export default function TodoList(props:todoItemProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const onUpdate = () => {
         setIsOpen(true)
@@ -16,8 +17,8 @@ export default function TodoList() {
     }
 
     return (
-        <div className='bg-[#C65BCF] w-full h-[50px] p-2 sm:w-[400px] flex justify-between items-center border-4 border-white rounded-lg'>
-            <h1 className='text-white text-base font-medium'>Something</h1>
+        <div className='bg-[#C65BCF] mt-3 w-full h-[50px] p-2 sm:w-[400px] flex justify-between items-center border-4 border-white rounded-lg'>
+            <h1 className='text-white text-base font-medium'>{props.text}</h1>
             <div className='flex gap-3'>
                 <button>
                     <FaRegEdit onClick={onUpdate} className='text-white' />
@@ -29,7 +30,6 @@ export default function TodoList() {
             </div>
             <UpdateModel isOpen={isOpen} onClose={onClose} />
         </div>
-
     )
 };
 
