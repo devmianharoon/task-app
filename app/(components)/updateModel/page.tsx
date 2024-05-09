@@ -6,7 +6,7 @@ import { FaTimes } from 'react-icons/fa';
 
 
 export default function UpdateModel({ isOpen, onClose, }: ModalProps) {
-    const [value ,setValue]=useState()
+    const [value, setValue] = useState()
     return (
         <div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
             <div className="modal-overlay absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-80">
