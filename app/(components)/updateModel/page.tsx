@@ -1,18 +1,17 @@
 'use client '
-import { getSingleTask } from '@/app/actions/actions';
+import { UpdateTodo, getSingleTask } from '@/app/actions/actions';
 import { ModalProps } from '@/app/types/types';
 import { useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 
 export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
-    const [value, setValue] = useState()
+    const [value, setValue] = useState<string>()
     useEffect(() => {
         const fetchData = async () => {
             const result = await getSingleTask(id);
             setValue(result.text || '');
         };
-
         if (isOpen) {
             fetchData();
         }
@@ -20,8 +19,15 @@ export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
     const handleChange = (e: any) => {
         setValue(e.target.value);
     };
-    const updateHandler = () => {
+    
+    const dataForUpdate={
+        id: id,
+        text:value
+    }  
 
+    const updateHandler = () => {
+        UpdateTodo(dataForUpdate)
+        onClose()
     }
 
     return (
