@@ -1,7 +1,7 @@
 export type ModalProps = {
     isOpen: boolean,
     onClose: () => void
-    // id:number
+    id:number
 }
 export type todoItemProps={
     text:string,

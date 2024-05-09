@@ -1,12 +1,29 @@
 'use client '
-import { getSingelTask } from '@/app/actions/actions';
+import { getSingleTask } from '@/app/actions/actions';
 import { ModalProps } from '@/app/types/types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 
-export default function UpdateModel({ isOpen, onClose, }: ModalProps) {
+export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
     const [value, setValue] = useState()
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await getSingleTask(id);
+            setValue(result.text || '');
+        };
+
+        if (isOpen) {
+            fetchData();
+        }
+    }, [isOpen, id]);
+    const handleChange = (e: any) => {
+        setValue(e.target.value);
+    };
+    const updateHandler = () => {
+
+    }
+
     return (
         <div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
             <div className="modal-overlay absolute top-0 left-0 w-full h-full bg-gray-800 bg-opacity-80">
@@ -25,10 +42,11 @@ export default function UpdateModel({ isOpen, onClose, }: ModalProps) {
                             value={value}
                             id="note"
                             className="w-full border p-2 mb-2 bg-[#A87676]"
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="flex justify-end">
-                        <button className="bg-[#C65BCF] text-white px-4 py-2 rounded hover:bg-[#B51B75]">
+                        <button className="bg-[#C65BCF] text-white px-4 py-2 rounded hover:bg-[#B51B75]" onClick={updateHandler}>
                             Update Todo
                         </button>
                     </div>

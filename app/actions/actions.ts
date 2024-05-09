@@ -38,15 +38,15 @@ export const deleteTodo = async (id: number) => {
 };
   
 // Get Singel Task
-export const getSingelTask = async (id: number) => {
-  const fetchData = await axios.get(`${backendUrl}/todo${id}`);
+export const getSingleTask = async (id: number) => {
+  const fetchData = await axios.get(`${backendUrl}/todo/${id}`);
   return fetchData.data;
 };
 
 
 // Update Task
 export const UpdateTodo = async (data: any) => {
-  const update = await axios.delete(`${backendUrl}/updatetodo/`, data);
+  const update = await axios.post(`${backendUrl}/updatetodo/`, data);
   return update.statusText;
 };
 

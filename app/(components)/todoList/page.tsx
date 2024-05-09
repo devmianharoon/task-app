@@ -29,7 +29,7 @@ export default function TodoList(props:todoItemProps) {
                 </button>
                 <input type="checkbox" id="checkbox_id" name="checkbox_name" value="checkbox_value" />
             </div>
-            <UpdateModel isOpen={isOpen} onClose={onClose} />
+            <UpdateModel isOpen={isOpen} onClose={onClose} id={props.id}/>
         </div>
     )
 };
