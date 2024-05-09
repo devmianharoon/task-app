@@ -12,12 +12,9 @@ export const postTask = async (taskData: { text: string }) => {
 
 
 };
-    
-
-
+   
 // Get ALL Task
-// const fetchData = await axios.get(`${backendUrl}/todos`);
-// return fetchData.data;
+;
 export const getTask = async () => {
   try {
     const response = await axios.get(`${backendUrl}/todos`, {
@@ -27,20 +24,24 @@ export const getTask = async () => {
     });
     return response.data;
   } catch (error) {
-    // Handle error
     console.error("Error fetching tasks:", error);
-    throw error; // Re-throw the error to be handled by the caller
+    throw error; 
   }}
 
 
+
+// Delete Task
+export const deleteTodo = async (id: number) => {
+  const deletetodo = await axios.delete(`${backendUrl}/deletetodo/${id}`);
+  revalidateTag('task')
+  return deletetodo.statusText;
+};
+  
 // Get Singel Task
 export const getSingelTask = async (id: number) => {
   const fetchData = await axios.get(`${backendUrl}/todo${id}`);
   return fetchData.data;
 };
-
-  
-  
 
 
 // Update Task
@@ -49,9 +50,4 @@ export const UpdateTodo = async (data: any) => {
   return update.statusText;
 };
 
-// Delete Task
-export const deleteTodo = async (id: number) => {
-  const deletetodo = await axios.delete(`${backendUrl}/deletetodo/${id}`);
-  revalidateTag('task')
-  return deletetodo.statusText;
-};
+
