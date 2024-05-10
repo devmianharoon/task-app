@@ -4,9 +4,9 @@ import { ModalProps } from '@/app/types/types';
 import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
+export default function UpdateModel({ isOpen, onClose, id }: any) {
+    const [value, setValue] = useState<string>(""); 
 
-export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
-    const [value, setValue] = useState<string>()
     useEffect(() => {
         const fetchData = async () => {
             const result = await getSingleTask(id);
@@ -15,20 +15,22 @@ export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
         if (isOpen) {
             fetchData();
         }
-    }, [isOpen, id]);
-    const handleChange = (e: any) => {
+    }, [isOpen, id]
+);
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => { 
         setValue(e.target.value);
     };
     
-    const dataForUpdate={
+    const dataForUpdate = {
         id: id,
-        text:value
-    }  
+        text: value
+    };
 
     const updateHandler = () => {
-        UpdateTodo(dataForUpdate)
-        onClose()
-    }
+        UpdateTodo(dataForUpdate);
+        onClose();
+    };
 
     return (
         <div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
@@ -60,4 +62,3 @@ export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
         </div>
     );
 };
-

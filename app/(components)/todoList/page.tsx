@@ -8,7 +8,7 @@ import { deleteTodo } from '@/app/actions/actions';
 
 
 
-export default function TodoList(props: todoItemProps) {
+export default function TodoList(props: any) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isDeleted, setIsDeleted] = useState<boolean>(false);
     const onUpdate = () => {

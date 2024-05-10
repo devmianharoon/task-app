@@ -1,9 +1,9 @@
 export type ModalProps = {
-    isOpen: boolean,
+    isOpen: any,
     onClose: () => void
     id:number
 }
 export type todoItemProps = {
-    text: string,
+    text: any,
     id: number,
 };

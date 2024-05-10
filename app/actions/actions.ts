@@ -45,7 +45,10 @@ export const getSingleTask = async (id: number) => {
 
 
 // Update Task
-export const UpdateTodo = async (data: any) => {
+export const UpdateTodo = async (data:  {
+  id: number,
+  text:string
+}) => {
   const update = await axios.put(`${backendUrl}/updatetodo/`, data);
   revalidateTag('task')
   return update.statusText;
