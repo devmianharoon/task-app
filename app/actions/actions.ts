@@ -2,7 +2,7 @@
 import axios from "axios";
 import { revalidateTag } from "next/cache";
 
-const backendUrl = "http://127.0.0.1:8080"; // Get All Task
+const backendUrl = "http://127.0.0.1:8000/api"; // Get All Task
 
 // Post New Task
 export const postTask = async (taskData: { text: string }) => {

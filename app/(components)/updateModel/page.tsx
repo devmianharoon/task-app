@@ -1,7 +1,7 @@
 'use client '
 import { UpdateTodo, getSingleTask } from '@/app/actions/actions';
 import { ModalProps } from '@/app/types/types';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
 

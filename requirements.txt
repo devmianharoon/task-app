@@ -1,0 +1,7 @@
+fastapi==0.100.1
+uvicorn[standard] == 0.29.0
+pydantic
+sqlalchemy
+requests
+psycopg2-binary
+python-dotenv
