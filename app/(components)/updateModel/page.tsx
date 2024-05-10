@@ -1,4 +1,4 @@
-'use client '
+'use client'
 import { UpdateTodo, getSingleTask } from '@/app/actions/actions';
 import { ModalProps } from '@/app/types/types';
 import { useEffect, useState } from 'react';
@@ -46,7 +46,6 @@ export default function UpdateModel({ isOpen, onClose, id }: ModalProps) {
                         </label>
                         <textarea
                             value={value}
-                            id="note"
                             className="w-full border p-2 mb-2 bg-[#A87676]"
                             onChange={handleChange}
                         />

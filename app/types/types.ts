@@ -3,8 +3,7 @@ export type ModalProps = {
     onClose: () => void
     id:number
 }
-export type todoItemProps={
-    text:string,
-    id:number,
-    is_active:boolean
-}
+export type todoItemProps = {
+    text: string,
+    id: number,
+};
